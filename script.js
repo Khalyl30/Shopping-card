@@ -18,7 +18,7 @@ let pricesInputs = document.getElementsByClassName("Quant");
 for (let priceInput of pricesInputs)
 {
     priceInput.addEventListener("focus" , (event)=>{
-        event.target.oldvalue = event.target.value; // whenever the input is being focused we store the old valeu before it changes
+        event.target.oldvalue = event.target.value; // whenever the input is being focused we store the old value before it changes
         // we will use it in the other event listener to calculate the price of a signle unit of the product
     })
     priceInput.addEventListener("change", (event)=>
@@ -67,7 +67,6 @@ let btnminus=document.getElementsByClassName("minus-btn");
 for(let i=0; i<btnminus.length;i++){
     let minus=btnminus[i];
     minus.addEventListener("click", function(){
-       
         const oldQuantity = parseInt(minus.nextElementSibling.value); // save old quantity value for future use 
         const newQuantity = oldQuantity - 1;
         if (!newQuantity)
@@ -88,7 +87,7 @@ for(let i=0; i<btnminus.length;i++){
 
 
 
-
+//Final Price
 const updateTotal = () => {
     let pricesInputs = document.getElementsByClassName("price");
     let total = 0
@@ -98,3 +97,15 @@ const updateTotal = () => {
     }
     document.getElementById("finalPrice").value = total;
 }
+
+
+// X button
+let deleteFromCard = document.getElementsByClassName('delete');
+for (let i=0; i<deleteFromCard.length;i++){
+    deleteFromCard[i].addEventListener('click', () =>{
+        deleteFromCard[i].parentElement.remove();
+        confirm('Do you really want to remove this item from card ?');
+    })
+    
+}
+
